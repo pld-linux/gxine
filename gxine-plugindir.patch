@@ -1,0 +1,14 @@
+--- gxine-0.3.3/configure.ac.orig	2003-04-08 16:32:36.000000000 +0200
++++ gxine-0.3.3/configure.ac	2004-04-12 23:40:01.406346816 +0200
+@@ -129,7 +129,10 @@
+    exec_prefix='${prefix}'
+ fi
+ 
+-GXINE_PLUGINDIR="$libdir/gxine"
++AC_ARG_WITH([plugindir],
++  AS_HELP_STRING([--with-plugindir=path],[use path to install browser plugin]),
++  [GXINE_PLUGINDIR=$withval], [GXINE_PLUGINDIR="$libdir/gxine"]
++)
+ eval GXINE_PLUGINPATH=`eval echo "$GXINE_PLUGINDIR"`
+ AC_DEFINE_UNQUOTED(GXINE_PLUGINDIR,"$GXINE_PLUGINPATH",[where to install the browser plugin])
+ AC_SUBST(GXINE_PLUGINPATH)
