@@ -2,12 +2,12 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.3.3
-Release:	2
+Version:	0.4.1
+Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.gz
-# Source0-md5:	d54af2f901065555348a77fa3b61581e
+# Source0-md5:	4a04df0d971a8952fb395b6eb0bc8dab
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
@@ -84,10 +84,12 @@ rm -rf $RPM_BUILD_ROOT
 install -D pixmaps/gxine-logo.png $RPM_BUILD_ROOT%{_pixmapsdir}/gxine-logo.png
 rm -f $RPM_BUILD_ROOT%{mozilladir}/*.la
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/gxine*
