@@ -15,6 +15,7 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	xine-lib-devel >= 1:1.0
 Requires:	xine-lib >= 1:1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
