@@ -13,7 +13,7 @@ Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
 BuildRequires:	xine-lib-devel >= 1:1.0
 Requires:	xine-lib >= 1:1.0
