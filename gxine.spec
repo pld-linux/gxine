@@ -33,7 +33,7 @@ xine ist ein freies Audio- und Video-Abspielprogramm für unixartige
 Systeme mit umfassenden Funktionen. Zur Audio- und Videodekodierung
 und Wiedergabe werden die xine-Bibliotheken aus libxine verwendet.
 Weitere Informationen über die unterstützten Formate entnehmen Sie in
-der Dokumentation zu libxine. gxine ist eine gtk basierende grafische
+der Dokumentation zu libxine. gxine ist eine GTK+ basierende grafische
 Oberfläche für diese xine-Bibliotheken, alternativ zur xine-ui
 
 %description -l pl
