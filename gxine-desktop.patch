@@ -1,15 +1,12 @@
---- gxine-0.3.3/gxine.desktop.orig	2002-11-25 12:34:36.000000000 +0100
-+++ gxine-0.3.3/gxine.desktop	2004-04-12 23:35:29.034753592 +0200
-@@ -1,7 +1,11 @@
- [Desktop Entry]
-+Encoding=UTF-8
+--- gxine-0.4.1/gxine.desktop.orig	2004-12-14 22:48:48.000000000 +0100
++++ gxine-0.4.1/gxine.desktop	2004-12-22 01:21:52.865380168 +0100
+@@ -2,7 +2,9 @@
+ Encoding=UTF-8
  Name=gxine
  Comment=A free video player
 +Comment[pl]=Wolnodostępny odtwarzacz filmów
  Exec=gxine
  Icon=gxine-logo.png
--Terminal=0
-+Terminal=false
+ Terminal=false
  Type=Application
 +Categories=GTK;AudioVideo;Player;
-+# vi:encoding=utf-8
