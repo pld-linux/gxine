@@ -11,5 +11,5 @@
 -Terminal=0
 +Terminal=false
  Type=Application
-+Categories=AudioVideo;Player;
++Categories=GTK;AudioVideo;Player;
 +# vi:encoding=utf-8
