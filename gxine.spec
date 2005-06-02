@@ -1,13 +1,17 @@
+#
+# Conditional build:
+%bcond_without	lirc	# without LIRC support
+#
 Summary:	GTK+ based GUI for xine-libraries
 Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.4.4
+Version:	0.4.5
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.gz
-# Source0-md5:	9c9c2f28412ecb1befa27bcd6ac1aacc
+# Source0-md5:	cce89759524e2c40f1c437c1ab28682b
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
@@ -16,6 +20,7 @@ BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.2.0
 BuildRequires:	js-devel
 BuildRequires:	libtool
+%{?with_lirc:BuildRequires:	lirc-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xine-lib-devel >= 1:1.0
 Requires:	xine-lib >= 1:1.0
@@ -70,6 +75,7 @@ gxine jako wtyczka Mozilli.
 %{__autoheader}
 %{__automake}
 %configure \
+	%{!?with_lirc:--disable-lirc} \
 	--disable-static \
 	--with-plugindir=%{mozilladir}
 
