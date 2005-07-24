@@ -1,12 +1,16 @@
---- gxine-0.4.1/gxine.desktop.orig	2004-12-14 22:48:48.000000000 +0100
-+++ gxine-0.4.1/gxine.desktop	2004-12-22 01:21:52.865380168 +0100
-@@ -2,7 +2,9 @@
- Encoding=UTF-8
+--- gxine-0.4.6/gxine.desktop.orig	2005-06-29 20:26:06.000000000 +0200
++++ gxine-0.4.6/gxine.desktop	2005-07-24 23:25:05.248055752 +0200
+@@ -4,11 +4,12 @@
  Name=gxine
- Comment=A free video player
-+Comment[pl]=Wolnodostępny odtwarzacz filmów
+ GenericName=Video Player
+ Comment=Play films and songs, or watch digital TV
++Comment[pl]=Odwarzanie filmów i piosenek, oglądanie telewizji cyfrowej
  Exec=gxine
+ MultipleArgs=true
  Icon=gxine-logo.png
  Terminal=false
  Type=Application
+ StartupNotify=true
+-Categories=GTK;Application;AudioVideo;
 +Categories=GTK;AudioVideo;Player;
+ MimeType=video/mpeg;video/msvideo;video/quicktime;video/x-avi;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;application/x-ogg;application/ogg;audio/x-mp3;audio/x-mpeg;video/x-mpeg;video/x-fli;audio/x-wav;audio/x-mpegurl;audio/x-scpls;audio/x-ms-asx;application/vnd.rn-realmedia;audio/x-real-audio;audio/x-pn-realaudio;application/x-flac;audio/x-flac;application/x-shockwave-flash;audio/mpeg;audio/x-ms-asf;audio/x-m4a;audio/x-ms-wax;video/dv;video/x-anim;video/x-flc;misc/ultravox;application/x-matroska;audio/vnd.rn-realaudio;audio/x-pn-aiff;audio/x-pn-au;audio/x-pn-wav;audio/x-pn-windows-acm;image/vnd.rn-realpix;video/vnd.rn-realvideo
