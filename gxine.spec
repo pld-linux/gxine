@@ -6,12 +6,12 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.4.6
+Version:	0.4.7
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.gz
-# Source0-md5:	62c2540ba3622b68af2df226778aa97b
+# Source0-md5:	cac5797d59257187cd0d789285f2e990
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
