@@ -6,12 +6,12 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.5.0
+Version:	0.5.4
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.gz
-# Source0-md5:	4cb1ba4ddbdeffabb5bb42722f605807
+Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.bz2
+# Source0-md5:	05003ea98fb7e953bdee6582a7f7e4c5
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
@@ -68,8 +68,6 @@ gxine jako wtyczka Mozilli.
 %patch0 -p1
 %patch1 -p1
 
-tail -n +7081 aclocal.m4 | head -n 48 > m4/ccld-checks.m4
-
 %build
 %{__libtoolize}
 %{__aclocal} -I m4
@@ -90,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir=%{_desktopdir}
 
-install -D pixmaps/gxine-logo.png $RPM_BUILD_ROOT%{_pixmapsdir}/gxine-logo.png
 rm -f $RPM_BUILD_ROOT%{mozilladir}/*.la
 
 %find_lang %{name} --all-name
@@ -106,7 +103,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}/gxine
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gxine/*
 %{_desktopdir}/gxine.desktop
-%{_pixmapsdir}/gxine-logo.png
+%{_iconsdir}/hicolor/*/*/*.png
+%{_pixmapsdir}/gxine.png
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
 
