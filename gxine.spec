@@ -77,7 +77,8 @@ gxine jako wtyczka Mozilli.
 %configure \
 	%{!?with_lirc:--disable-lirc} \
 	--disable-static \
-	--with-plugindir=%{mozilladir}
+	--with-plugindir=%{mozilladir} \
+	--with-spidermonkey=/usr/include/js
 
 %{__make}
 
