@@ -6,7 +6,7 @@
  Comment=Play films and songs, or watch digital TV
 +Comment[pl]=Odwarzanie filmów i piosenek, oglądanie telewizji cyfrowej
  Exec=gxine
- MultipleArgs=true
+ X-MultipleArgs=true
  Icon=gxine
  Terminal=false
  Type=Application
