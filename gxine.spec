@@ -6,18 +6,18 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.4.5
+Version:	0.5.8
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.gz
-# Source0-md5:	cce89759524e2c40f1c437c1ab28682b
+Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.bz2
+# Source0-md5:	e6bc2be9c6b3a13a101d462b2034b035
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 1:2.2.0
+BuildRequires:	gtk+2-devel >= 1:2.6.0
 BuildRequires:	js-devel
 BuildRequires:	libtool
 %{?with_lirc:BuildRequires:	lirc-devel}
@@ -77,7 +77,8 @@ gxine jako wtyczka Mozilli.
 %configure \
 	%{!?with_lirc:--disable-lirc} \
 	--disable-static \
-	--with-plugindir=%{mozilladir}
+	--with-plugindir=%{mozilladir} \
+	--with-spidermonkey=/usr/include/js
 
 %{__make}
 
@@ -88,10 +89,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir=%{_desktopdir}
 
-install -D pixmaps/gxine-logo.png $RPM_BUILD_ROOT%{_pixmapsdir}/gxine-logo.png
 rm -f $RPM_BUILD_ROOT%{mozilladir}/*.la
 
-%find_lang %{name}
+%find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -101,8 +101,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/gxine*
 %{_datadir}/gxine
+%dir %{_sysconfdir}/gxine
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gxine/*
 %{_desktopdir}/gxine.desktop
-%{_pixmapsdir}/gxine-logo.png
+%{_iconsdir}/hicolor/*/*/*.png
+%{_pixmapsdir}/gxine.png
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
 
