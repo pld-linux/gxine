@@ -20,10 +20,10 @@ BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.6.0
 BuildRequires:	js-devel
 BuildRequires:	libtool
-BuildRequires:	xorg-lib-libXaw-devel
 %{?with_lirc:BuildRequires:	lirc-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xine-lib-devel >= 1:1.0
+BuildRequires:	xorg-lib-libXaw-devel
 Requires:	xine-lib >= 1:1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
