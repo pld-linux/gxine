@@ -1,3 +1,4 @@
+# TODO: switch to browser-plugins
 #
 # Conditional build:
 %bcond_without	lirc	# without LIRC support
