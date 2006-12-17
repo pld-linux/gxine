@@ -1,9 +1,9 @@
---- gxine-0.5.4/gxine.desktop.orig	2005-11-29 20:07:40.000000000 +0100
-+++ gxine-0.5.4/gxine.desktop	2006-02-02 16:18:12.000000000 +0100
+--- gxine-0.5.9/gxine.desktop.orig	2006-12-17 09:22:32.000000000 +0100
++++ gxine-0.5.9/gxine.desktop	2006-12-17 09:44:03.000000000 +0100
 @@ -4,11 +4,12 @@
  Name=gxine
  GenericName=Video Player
- Comment=Play films and songs, or watch digital TV
+ Comment=Watch videos or TV and listen to audio in a variety of formats
 +Comment[pl]=Odwarzanie filmów i piosenek, oglądanie telewizji cyfrowej
  Exec=gxine
  X-MultipleArgs=true
@@ -11,7 +11,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GTK;Application;AudioVideo;
+-Categories=AudioVideo;GTK;Player;TV;
 -MimeType=video/mpeg;video/msvideo;video/quicktime;video/x-avi;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;application/x-ogg;application/ogg;audio/x-mp3;audio/x-mpeg;video/x-mpeg;video/x-fli;audio/x-wav;audio/x-mpegurl;audio/x-scpls;audio/x-ms-asx;application/vnd.rn-realmedia;audio/x-real-audio;audio/x-pn-realaudio;application/x-flac;audio/x-flac;application/x-shockwave-flash;audio/mpeg;audio/x-ms-asf;audio/x-m4a;audio/x-ms-wax;video/dv;video/x-anim;video/x-flc;misc/ultravox;application/x-matroska;audio/vnd.rn-realaudio;audio/x-pn-aiff;audio/x-pn-au;audio/x-pn-wav;audio/x-pn-windows-acm;image/vnd.rn-realpix;video/vnd.rn-realvideo
 +Categories=GTK;AudioVideo;Player;
 +MimeType=video/mpeg;video/msvideo;video/quicktime;video/x-avi;video/x-ms-asf;video/x-ms-wmv;video/x-msvideo;application/x-ogg;application/ogg;audio/x-mp3;audio/x-mpeg;video/x-mpeg;video/x-fli;audio/x-wav;audio/x-mpegurl;audio/x-scpls;audio/x-ms-asx;application/vnd.rn-realmedia;audio/x-real-audio;audio/x-pn-realaudio;application/x-flac;audio/x-flac;application/x-shockwave-flash;audio/mpeg;audio/x-ms-asf;audio/x-m4a;audio/x-ms-wax;video/dv;video/x-anim;video/x-flc;misc/ultravox;application/x-matroska;audio/vnd.rn-realaudio;audio/x-pn-aiff;audio/x-pn-au;audio/x-pn-wav;audio/x-pn-windows-acm;image/vnd.rn-realpix;video/vnd.rn-realvideo;
