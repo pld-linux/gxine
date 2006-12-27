@@ -25,10 +25,10 @@ BuildRequires:	nspr-devel
 BuildRequires:	pango-devel >= 1.12
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.357
-BuildRequires:	xine-lib-devel >= 1:1.0.1
+BuildRequires:	xine-lib-devel >= 2:1.0.1
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXinerama-devel
-Requires:	xine-lib >= 1:1.0.1
+Requires:	xine-lib >= 2:1.0.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
