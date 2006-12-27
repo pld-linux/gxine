@@ -16,17 +16,19 @@ Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
-BuildRequires:	autoconf >= 2.50
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	gtk+2-devel >= 1:2.6.0
 BuildRequires:	js-devel
 BuildRequires:	libtool
 %{?with_lirc:BuildRequires:	lirc-devel}
 BuildRequires:	nspr-devel
+BuildRequires:	pango-devel >= 1.12
 BuildRequires:	pkgconfig
-BuildRequires:	xine-lib-devel >= 1:1.0
+BuildRequires:	xine-lib-devel >= 1:1.0.1
 BuildRequires:	xorg-lib-libXaw-devel
-Requires:	xine-lib >= 1:1.0
+BuildRequires:	xorg-lib-libXinerama-devel
+Requires:	xine-lib >= 1:1.0.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		mozilladir	/usr/%{_lib}/mozilla/plugins
