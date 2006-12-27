@@ -1,4 +1,3 @@
-# TODO: switch to browser-plugins
 #
 # Conditional build:
 %bcond_without	lirc	# without LIRC support
@@ -25,13 +24,12 @@ BuildRequires:	libtool
 BuildRequires:	nspr-devel
 BuildRequires:	pango-devel >= 1.12
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.357
 BuildRequires:	xine-lib-devel >= 1:1.0.1
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 Requires:	xine-lib >= 1:1.0.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		mozilladir	/usr/%{_lib}/mozilla/plugins
 
 %description
 xine is a fully-featured free audio/video player for unix-like systems
@@ -56,17 +54,20 @@ formatach mo¿na znale¼æ w dokumentacji libxine. gxine to graficzny
 interfejs u¿ytkownika do tych bibliotek, oparty na GTK+, alternatywny
 dla xine-ui.
 
-%package -n mozilla-plugin-gxine
-Summary:	gxine as Mozilla plugin
-Summary(pl):	gxine jako wtyczka Mozilli
+%package -n browser-plugin-gxine
+Summary:	gxine as browser plugin
+Summary(pl):	gxine jako wtyczka przegl±darki
 Group:		X11/Applications/Multimedia
+Requires(post,postun):	browser-plugins >= 2.0
 Requires:	%{name} = %{version}-%{release}
+Requires:	browser-plugins(%{_target_base_arch})
+Obsoletes:	mozilla-plugin-gxine
 
-%description -n mozilla-plugin-gxine
-gxine as Mozilla plugin.
+%description -n browser-plugin-gxine
+gxine as browser plugin.
 
-%description -n mozilla-plugin-gxine -l pl
-gxine jako wtyczka Mozilli.
+%description -n browser-plugin-gxine -l pl
+gxine jako wtyczka przegl±darki.
 
 %prep
 %setup -q
@@ -82,7 +83,7 @@ gxine jako wtyczka Mozilli.
 %configure \
 	%{!?with_lirc:--disable-lirc} \
 	--disable-static \
-	--with-plugindir=%{mozilladir} \
+	--with-plugindir=%{_browserpluginsdir} \
 	--with-spidermonkey=/usr/include/js
 
 %{__make}
@@ -94,12 +95,20 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	Applicationsdir=%{_desktopdir}
 
-rm -f $RPM_BUILD_ROOT%{mozilladir}/*.la
+rm -f $RPM_BUILD_ROOT%{_browserpluginsdir}/*.la
 
 %find_lang %{name} --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post -n browser-plugin-gxine
+%update_browser_plugins
+
+%postun -n browser-plugin-gxine
+if [ "$1" = "0" ]; then
+	%update_browser_plugins
+fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -114,6 +123,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %lang(de) %{_mandir}/de/man1/*
 
-%files -n mozilla-plugin-gxine
+%files -n browser-plugin-gxine
 %defattr(644,root,root,755)
-%attr(755,root,root) %{mozilladir}/gxineplugin.so
+%attr(755,root,root) %{_browserpluginsdir}/gxineplugin.so
