@@ -6,23 +6,24 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.5.10
+Version:	0.5.11
 Release:	1
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.bz2
-# Source0-md5:	0df37a7a38ea0d63129d2590971caabb
+# Source0-md5:	b210d1f6e3eab3ff496c1db9e09dbcd0
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 URL:		http://xine.sourceforge.net/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	dbus-glib-devel >= 0.35
 BuildRequires:	gtk+2-devel >= 1:2.6.0
 BuildRequires:	js-devel
 BuildRequires:	libtool
 %{?with_lirc:BuildRequires:	lirc-devel}
 BuildRequires:	nspr-devel
-BuildRequires:	pango-devel >= 1.12
+BuildRequires:	pango-devel >= 1.12.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.357
 BuildRequires:	xine-lib-devel >= 2:1.0.1
@@ -81,6 +82,7 @@ gxine jako wtyczka przegl±darki.
 %{__autoheader}
 %{__automake}
 %configure \
+	GSSCMD=/usr/bin/gnome-screensaver-command \
 	%{!?with_lirc:--disable-lirc} \
 	--disable-static \
 	--with-plugindir=%{_browserpluginsdir} \
