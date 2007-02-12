@@ -3,8 +3,8 @@
 %bcond_without	lirc	# without LIRC support
 #
 Summary:	GTK+ based GUI for xine-libraries
-Summary(de):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
-Summary(pl):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
+Summary(de.UTF-8):   GTK+ basierende grafische OberflÃ¤che fÃ¼r die xine-Bibliotheken
+Summary(pl.UTF-8):   Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
 Version:	0.5.11
 Release:	1
@@ -39,25 +39,25 @@ informations on what formats are supported, please refer to the
 libxine documentation. gxine is a GTK+ based GUI for this
 xine-libraries alternat to xine-ui.
 
-%description -l de
-xine ist ein freies Audio- und Video-Abspielprogramm für unixartige
+%description -l de.UTF-8
+xine ist ein freies Audio- und Video-Abspielprogramm fÃ¼r unixartige
 Systeme mit umfassenden Funktionen. Zur Audio- und Videodekodierung
 und Wiedergabe werden die xine-Bibliotheken aus libxine verwendet.
-Weitere Informationen über die unterstützten Formate entnehmen Sie in
+Weitere Informationen Ã¼ber die unterstÃ¼tzten Formate entnehmen Sie in
 der Dokumentation zu libxine. gxine ist eine GTK+ basierende grafische
-Oberfläche für diese xine-Bibliotheken, alternativ zur xine-ui
+OberflÃ¤che fÃ¼r diese xine-Bibliotheken, alternativ zur xine-ui
 
-%description -l pl
-xine to w pe³ni funkcjonalny wolnodostêpny odtwarzacz filmów dla
-systemów uniksowych, korzystaj±cy z libxine do dekodowania i
-odtwarzania d¼wiêku i obrazu. Wiêcej informacji o obs³ugiwanych
-formatach mo¿na znale¼æ w dokumentacji libxine. gxine to graficzny
-interfejs u¿ytkownika do tych bibliotek, oparty na GTK+, alternatywny
+%description -l pl.UTF-8
+xine to w peÅ‚ni funkcjonalny wolnodostÄ™pny odtwarzacz filmÃ³w dla
+systemÃ³w uniksowych, korzystajÄ…cy z libxine do dekodowania i
+odtwarzania dÅºwiÄ™ku i obrazu. WiÄ™cej informacji o obsÅ‚ugiwanych
+formatach moÅ¼na znaleÅºÄ‡ w dokumentacji libxine. gxine to graficzny
+interfejs uÅ¼ytkownika do tych bibliotek, oparty na GTK+, alternatywny
 dla xine-ui.
 
 %package -n browser-plugin-gxine
 Summary:	gxine as browser plugin
-Summary(pl):	gxine jako wtyczka przegl±darki
+Summary(pl.UTF-8):   gxine jako wtyczka przeglÄ…darki
 Group:		X11/Applications/Multimedia
 Requires(post,postun):	browser-plugins >= 2.0
 Requires:	%{name} = %{version}-%{release}
@@ -67,8 +67,8 @@ Obsoletes:	mozilla-plugin-gxine
 %description -n browser-plugin-gxine
 gxine as browser plugin.
 
-%description -n browser-plugin-gxine -l pl
-gxine jako wtyczka przegl±darki.
+%description -n browser-plugin-gxine -l pl.UTF-8
+gxine jako wtyczka przeglÄ…darki.
 
 %prep
 %setup -q
