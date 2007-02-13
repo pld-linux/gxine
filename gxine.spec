@@ -3,8 +3,8 @@
 %bcond_without	lirc	# without LIRC support
 #
 Summary:	GTK+ based GUI for xine-libraries
-Summary(de.UTF-8):   GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
-Summary(pl.UTF-8):   Oparty na GTK+ graficzny interfejs do bibliotek XINE
+Summary(de.UTF-8):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
+Summary(pl.UTF-8):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
 Version:	0.5.11
 Release:	1
@@ -57,7 +57,7 @@ dla xine-ui.
 
 %package -n browser-plugin-gxine
 Summary:	gxine as browser plugin
-Summary(pl.UTF-8):   gxine jako wtyczka przeglądarki
+Summary(pl.UTF-8):	gxine jako wtyczka przeglądarki
 Group:		X11/Applications/Multimedia
 Requires(post,postun):	browser-plugins >= 2.0
 Requires:	%{name} = %{version}-%{release}
