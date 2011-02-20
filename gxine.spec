@@ -6,30 +6,40 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de.UTF-8):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl.UTF-8):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.5.11
-Release:	5
-License:	GPL
+Version:	0.5.905
+Release:	1
+License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://dl.sourceforge.net/xine/%{name}-%{version}.tar.bz2
-# Source0-md5:	b210d1f6e3eab3ff496c1db9e09dbcd0
+Source0:	http://downloads.sourceforge.net/xine/%{name}-%{version}.tar.bz2
+# Source0-md5:	3c9092f1c5c8dc85e95ca327cdcc77af
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
-URL:		http://xine.sourceforge.net/
+Patch2:		%{name}-link.patch
+URL:		http://www.xine-project.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.35
-BuildRequires:	gtk+2-devel >= 1:2.6.0
+BuildRequires:	glib2-devel >= 1:2.10.0
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	js-devel
 BuildRequires:	libtool
+BuildRequires:	libxcb-devel >= 1.0
 %{?with_lirc:BuildRequires:	lirc-devel}
 BuildRequires:	nspr-devel
-BuildRequires:	pango-devel >= 1.12.0
+BuildRequires:	pango-devel >= 1:1.12.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.357
-BuildRequires:	xine-lib-devel >= 2:1.0.1
+BuildRequires:	udev-glib-devel
+BuildRequires:	xine-lib-devel >= 2:1.1.8
 BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXinerama-devel
-Requires:	xine-lib >= 2:1.0.1
+BuildRequires:	xorg-lib-libXrandr-devel
+BuildRequires:	xorg-lib-libXtst-devel
+Requires:	glib2 >= 1:2.10.0
+Requires:	gtk+2 >= 2:2.8.0
+Requires:	pango >= 1:1.12.0
+Requires:	xine-lib >= 2:1.1.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,6 +84,7 @@ gxine jako wtyczka przeglądarki.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -83,8 +94,9 @@ gxine jako wtyczka przeglądarki.
 %{__automake}
 %configure \
 	GSSCMD=/usr/bin/gnome-screensaver-command \
+	XSSCMD=/usr/bin/xscreensaver \
 	%{!?with_lirc:--disable-lirc} \
-	--disable-static \
+	--with-gudev \
 	--with-plugindir=%{_browserpluginsdir} \
 	--with-spidermonkey=/usr/include/js
 
@@ -94,10 +106,9 @@ gxine jako wtyczka przeglądarki.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	Applicationsdir=%{_desktopdir}
+	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_browserpluginsdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_browserpluginsdir}/*.la
 
 %find_lang %{name} --all-name
 
@@ -114,16 +125,25 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
-%attr(755,root,root) %{_bindir}/gxine*
+%doc AUTHORS BUGS ChangeLog README TODO
+%lang(cs) %doc README.cs
+%lang(de) %doc README.de
+%attr(755,root,root) %{_bindir}/gxine
+%attr(755,root,root) %{_bindir}/gxine_client
 %{_datadir}/gxine
 %dir %{_sysconfdir}/gxine
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gxine/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gxine/gtkrc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gxine/startup
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/gxine/*.xml
 %{_desktopdir}/gxine.desktop
-%{_iconsdir}/hicolor/*/*/*.png
+%{_iconsdir}/hicolor/*/apps/gxine.png
 %{_pixmapsdir}/gxine.png
-%{_mandir}/man1/*
-%lang(de) %{_mandir}/de/man1/*
+%{_mandir}/man1/gxine.1*
+%{_mandir}/man1/gxine_client.1*
+%lang(de) %{_mandir}/de/man1/gxine.1*
+%lang(de) %{_mandir}/de/man1/gxine_client.1*
+%lang(es) %{_mandir}/es/man1/gxine.1*
+%lang(es) %{_mandir}/es/man1/gxine_client.1*
 
 %files -n browser-plugin-gxine
 %defattr(644,root,root,755)

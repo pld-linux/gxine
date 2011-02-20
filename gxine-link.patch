@@ -1,0 +1,13 @@
+--- gxine-0.5.905/configure.ac.orig	2011-02-19 21:36:51.226973392 +0100
++++ gxine-0.5.905/configure.ac	2011-02-20 07:38:03.234976745 +0100
+@@ -84,8 +84,8 @@
+ 
+ dnl Test for socket and network support library
+ NET_LIBS=""
+-AC_CHECK_LIB(socket, socket, NET_LIBS="-lsocket $NET_LIBS",)
+-AC_CHECK_LIB(nsl, gethostbyname, NET_LIBS="-lnsl $NET_LIBS",)
++AC_CHECK_FUNC(socket, [], [AC_CHECK_LIB(socket, socket, NET_LIBS="-lsocket $NET_LIBS",)])
++AC_CHECK_FUNC(gethostbyname, [], [AC_CHECK_LIB(nsl, gethostbyname, NET_LIBS="-lnsl $NET_LIBS",)])
+ AC_SUBST(NET_LIBS)
+ 
+ dnl ---------------------------------------------
