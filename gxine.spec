@@ -6,15 +6,16 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de.UTF-8):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl.UTF-8):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.5.905
-Release:	2
+Version:	0.5.907
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://downloads.sourceforge.net/xine/%{name}-%{version}.tar.bz2
-# Source0-md5:	3c9092f1c5c8dc85e95ca327cdcc77af
+# Source0-md5:	6675dba9d51f45efe4edfa65ee38b6cb
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 Patch2:		%{name}-link.patch
+Patch3:		glib.patch
 URL:		http://www.xine-project.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -85,8 +86,10 @@ gxine jako wtyczka przeglądarki.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
+%{__gettextize}
 %{__libtoolize}
 %{__aclocal} -I m4
 %{__autoconf}
@@ -106,6 +109,7 @@ gxine jako wtyczka przeglądarki.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	MKDIR_P="mkdir -p" \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_browserpluginsdir}/*.la

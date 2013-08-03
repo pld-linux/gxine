@@ -9,7 +9,7 @@
  Comment[ca]=Reproduïu vídeos i cançons
  Comment[es]=Reproduce vídeos y canciones
 +Comment[pl]=Odwarzanie filmów i piosenek, oglądanie telewizji cyfrowej
- Exec=gxine
+ Exec=gxine %U
  X-MultipleArgs=true
  Icon=gxine
  Terminal=false
@@ -18,7 +18,7 @@
 -Categories=AudioVideo;GTK;Player;TV;
 +Categories=AudioVideo;GTK;Player;
  MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
-\ Brak znaku nowej linii na ko�cu pliku
+\ Brak znaku nowej linii na końcu pliku
 --- gxine-0.5.905/mime.extra.orig	2009-12-19 17:10:04.000000000 +0100
 +++ gxine-0.5.905/mime.extra	2011-02-20 07:23:13.558973392 +0100
 @@ -1,3 +0,0 @@
