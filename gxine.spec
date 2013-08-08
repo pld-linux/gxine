@@ -22,7 +22,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.35
 BuildRequires:	glib2-devel >= 1:2.10.0
 BuildRequires:	gtk+2-devel >= 2:2.8.0
-BuildRequires:	js-devel
+BuildRequires:	js-devel >= 2:1.8.5
 BuildRequires:	libtool
 BuildRequires:	libxcb-devel >= 1.0
 %{?with_lirc:BuildRequires:	lirc-devel}
@@ -100,10 +100,12 @@ gxine jako wtyczka przeglądarki.
 	XSSCMD=/usr/bin/xscreensaver \
 	%{!?with_lirc:--disable-lirc} \
 	--with-gudev \
+	--without-hal \
 	--with-plugindir=%{_browserpluginsdir} \
 	--with-spidermonkey=/usr/include/js
 
-%{__make}
+%{__make} \
+	V=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
