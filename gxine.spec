@@ -22,7 +22,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.35
 BuildRequires:	glib2-devel >= 1:2.10.0
 BuildRequires:	gtk+2-devel >= 2:2.8.0
-BuildRequires:	js-devel >= 2:1.8.5
+BuildRequires:	js187-devel
 BuildRequires:	libtool
 BuildRequires:	libxcb-devel >= 1.0
 %{?with_lirc:BuildRequires:	lirc-devel}
