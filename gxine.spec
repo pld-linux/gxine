@@ -6,16 +6,15 @@ Summary:	GTK+ based GUI for xine-libraries
 Summary(de.UTF-8):	GTK+ basierende grafische Oberfläche für die xine-Bibliotheken
 Summary(pl.UTF-8):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
-Version:	0.5.907
-Release:	2
+Version:	0.5.908
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://downloads.sourceforge.net/xine/%{name}-%{version}.tar.bz2
-# Source0-md5:	6675dba9d51f45efe4edfa65ee38b6cb
+Source0:	http://downloads.sourceforge.net/xine/%{name}-%{version}.tar.xz
+# Source0-md5:	a49618d8d1fdad9e7d15aee4cc5fd15f
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-plugindir.patch
 Patch2:		%{name}-link.patch
-Patch3:		glib.patch
 URL:		http://www.xine-project.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -30,6 +29,7 @@ BuildRequires:	nspr-devel
 BuildRequires:	pango-devel >= 1:1.12.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.357
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	udev-glib-devel
 BuildRequires:	xine-lib-devel >= 2:1.1.8
 BuildRequires:	xorg-lib-libXaw-devel
@@ -37,6 +37,7 @@ BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXinerama-devel
 BuildRequires:	xorg-lib-libXrandr-devel
 BuildRequires:	xorg-lib-libXtst-devel
+BuildRequires:	xz
 Requires:	glib2 >= 1:2.10.0
 Requires:	gtk+2 >= 2:2.8.0
 Requires:	pango >= 1:1.12.0
@@ -86,7 +87,6 @@ gxine jako wtyczka przeglądarki.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__gettextize}
@@ -104,6 +104,7 @@ gxine jako wtyczka przeglądarki.
 	--with-plugindir=%{_browserpluginsdir} \
 	--with-spidermonkey=/usr/include/js
 
+# need to use V= because of misc/Makefile.quiet
 %{__make} \
 	V=1
 
