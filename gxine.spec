@@ -7,7 +7,7 @@ Summary(de.UTF-8):	GTK+ basierende grafische Oberfläche für die xine-Bibliothe
 Summary(pl.UTF-8):	Oparty na GTK+ graficzny interfejs do bibliotek XINE
 Name:		gxine
 Version:	0.5.908
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://downloads.sourceforge.net/xine/%{name}-%{version}.tar.xz
