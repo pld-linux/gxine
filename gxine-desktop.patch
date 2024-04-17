@@ -1,6 +1,6 @@
---- gxine-0.5.905/gxine.desktop.in.orig	2009-12-19 17:10:03.000000000 +0100
-+++ gxine-0.5.905/gxine.desktop.in	2011-02-19 20:42:05.602975068 +0100
-@@ -5,14 +5,16 @@
+--- gxine-0.5.910/gxine.desktop.in.orig	2024-04-16 22:27:22.781103406 +0200
++++ gxine-0.5.910/gxine.desktop.in	2024-04-16 22:28:29.517408531 +0200
+@@ -5,14 +5,16 @@ GenericName=Video Player
  GenericName[ca]=Reproductor de peŀlícules
  GenericName[de]=Video-Player
  GenericName[es]=Reproductor de películas
@@ -15,10 +15,11 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=AudioVideo;GTK;Player;TV;
-+Categories=AudioVideo;GTK;Player;
- MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
-\ Brak znaku nowej linii na końcu pliku
+-Categories=AudioVideo;Video;GTK;Player;TV;
+-MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
+\ No newline at end of file
++Categories=AudioVideo;Video;GTK;Player;
++MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
 --- gxine-0.5.905/mime.extra.orig	2009-12-19 17:10:04.000000000 +0100
 +++ gxine-0.5.905/mime.extra	2011-02-20 07:23:13.558973392 +0100
 @@ -1,3 +0,0 @@

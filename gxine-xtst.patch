@@ -1,0 +1,21 @@
+--- gxine-0.5.910/src/gtkvideo.c.orig	2017-12-27 18:41:32.000000000 +0100
++++ gxine-0.5.910/src/gtkvideo.c	2024-04-17 19:09:04.740824991 +0200
+@@ -502,14 +502,14 @@ static gboolean key_snoop_cb (GtkWidget
+   if (e->type == GDK_KEY_PRESS)
+     switch (e->keyval)
+     {
+-    case GDK_Shift_L: shift |= 1; break;
+-    case GDK_Shift_R: shift |= 2; break;
++    case XK_Shift_L: shift |= 1; break;
++    case XK_Shift_R: shift |= 2; break;
+     }
+   else
+     switch (e->keyval)
+     {
+-    case GDK_Shift_L: shift &= ~1; break;
+-    case GDK_Shift_R: shift &= ~2; break;
++    case XK_Shift_L: shift &= ~1; break;
++    case XK_Shift_R: shift &= ~2; break;
+     }
+   return FALSE;
+ }

@@ -1,8 +1,8 @@
---- gxine-0.3.3/configure.ac.orig	2003-04-08 16:32:36.000000000 +0200
-+++ gxine-0.3.3/configure.ac	2004-04-12 23:40:01.406346816 +0200
-@@ -129,7 +129,10 @@
-    exec_prefix='${prefix}'
- fi
+--- gxine-0.5.910/configure.ac.orig	2024-04-16 22:28:59.967243570 +0200
++++ gxine-0.5.910/configure.ac	2024-04-17 06:24:41.395954723 +0200
+@@ -641,7 +641,10 @@ AM_CONDITIONAL(HAVE_OPTIPNG, [test "x$OP
+ AM_CONDITIONAL(HAVE_ADVPNG, [test "x$ADVPNG" != x])
+ 
  
 -GXINE_PLUGINDIR="$libdir/gxine"
 +AC_ARG_WITH([plugindir],
